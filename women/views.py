@@ -6,7 +6,11 @@ from django.urls import reverse
 
 
 def index(request: HttpRequest):
-    return HttpResponse('Страница приложения women.')
+    return render(request, 'women/index.html')
+
+
+def about(request: HttpRequest):
+    return render(request, 'women/about.html')
 
 
 def categories(request: HttpRequest, cat_id):
@@ -19,7 +23,7 @@ def categories_by_slug(request: HttpRequest, cat_slug):
 
 def archive(request: HttpRequest, year):
     if year > datetime.datetime.now().year:
-        return redirect(reverse('cats', args=('music')))
+        return redirect(reverse('cats', args=('music',)))
     return HttpResponse(f'<h1>Архив по годам</h1><p>Год: {year}')
 
 
