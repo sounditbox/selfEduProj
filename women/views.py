@@ -1,7 +1,8 @@
 import datetime
 
 from django.http import HttpResponse, HttpRequest, HttpResponseNotFound, Http404
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.urls import reverse
 
 
 def index(request: HttpRequest):
@@ -18,7 +19,7 @@ def categories_by_slug(request: HttpRequest, cat_slug):
 
 def archive(request: HttpRequest, year):
     if year > datetime.datetime.now().year:
-        raise Http404()
+        return redirect(reverse('cats', args=('music')))
     return HttpResponse(f'<h1>Архив по годам</h1><p>Год: {year}')
 
 
