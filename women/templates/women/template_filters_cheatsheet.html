@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ main_title|default:'Без заголовка' }}</title>
+</head>
+<body>
+<h1>{{ title }}</h1>
+
+
+<h2>строка '{{ title }}'</h2>
+<p><b>cupfirst</b>: {{ title|capfirst }}</p>
+<p><b>cut</b>: {{ title|cut:' '|cut:'р' }}</p>
+<p><b>upper</b>: {{ title|upper }}</p>
+<p><b>slugify 'some string'</b>: {{ 'Some teXt STRing'|slugify }}</p>
+
+<h2>Список {{ menu }}</h2>
+<p><b>first</b>: {{ menu|first }}</p>
+<p><b>last</b>: {{ menu|last }}</p>
+<p><b>join</b>: {{ menu|join:' | ' }}</p>
+<p><b>length</b>: {{ menu|length }}</p>
+
+<h2>Значение float: {{ float }}</h2>
+<p><b>add:2</b>(cast to int): {{ float|add:'2' }}</p>
+<p><b>divisibleby:2</b>  {{ float|divisibleby:'2' }}</p>
+
+<p>{{ lst.0 }}</p>
+<p>{{ set }}</p>
+<p>{{ dict.key }}</p>
+<p>{{ object.a }}</p>
+</body>
+</html>
