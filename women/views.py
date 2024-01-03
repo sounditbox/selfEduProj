@@ -6,7 +6,14 @@ from django.urls import reverse
 
 
 def index(request: HttpRequest):
-    return render(request, 'women/index.html', {'title': 'Главная страница'})
+    dummy_data = [
+        {'id': 1, 'title': 'Анджелина Джоли', 'content': 'Биография Анджелины Джоли', 'is_published': True},
+        {'id': 2, 'title': 'София Лиллис', 'content': 'Биография Софии Лиллис', 'is_published': True},
+        {'id': 4, 'title': 'Дженнифер Лоуренс', 'content': 'Биография Дженнифер Лоуренс', 'is_published': False},
+        {'id': 3, 'title': 'Сэйди Синк', 'content': 'Биография Сэйди Синк', 'is_published': True}
+
+    ]
+    return render(request, 'women/index.html', {'title': 'Главная страница', 'posts': dummy_data})
 
 
 def template_filters_cheatsheet(request):
